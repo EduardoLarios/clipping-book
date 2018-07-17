@@ -1,0 +1,17 @@
+﻿@page
+@model MegaDriveWeb.Pages.ExploreModel
+@{
+    ViewData["Title"] = "Explore";
+}
+
+<h2>@Model.PageContents.Title</h2>
+<div>@String.Join(",", Model.PageContents.Tags)</div>
+
+<ul>
+    @foreach(var element in Model.PageContents.Contents)
+    {
+        <li>
+            <a href="/Explore?Guid=@element.Guid">@element.Text</a> (@String.Join(",", element.Tags))
+        </li>
+    }
+</ul>
