@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using ClippingBookWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using static MegaDriveWeb.ClippingBook;
+using static ClippingBookWeb.ClippingBook;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace MegaDriveWeb
+namespace ClippingBookWeb
 {
     [Route("api/[controller]")]
     public class CRUD : Controller

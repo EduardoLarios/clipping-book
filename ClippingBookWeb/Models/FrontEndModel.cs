@@ -1,4 +1,4 @@
-﻿using MegaDriveWeb;
+﻿using ClippingBookWeb;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,9 +39,9 @@ namespace ClippingBookWeb.Models
 
         public List<FrontEndContent> Contents = new List<FrontEndContent>();
 
-        public readonly ClippingBook Book;
+        public readonly ClippingBookWeb.ClippingBook Book;
 
-        public FrontEndModel(ClippingBook book, ClippedFolder folder)
+        public FrontEndModel(ClippingBookWeb.ClippingBook book, ClippedFolder folder)
         {
             Book = book ?? throw new ArgumentNullException(nameof(book));
             if (folder == null)

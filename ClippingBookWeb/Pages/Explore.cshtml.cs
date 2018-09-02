@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ClippingBookWeb.Models;
-using MegaDriveWeb;
+using ClippingBookWeb;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace MegaDriveWeb.Pages
+namespace ClippingBookWeb.Pages
 {
     public class ExploreModel : PageModel
     {

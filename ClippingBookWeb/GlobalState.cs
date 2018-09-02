@@ -1,12 +1,9 @@
-﻿using MegaDriveWeb;
+﻿using ClippingBookWeb;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace MegaDriveWeb
+namespace ClippingBookWeb
 {
     public static class GlobalState
     {
@@ -15,7 +12,7 @@ namespace MegaDriveWeb
         public static void ReadOrNewBook()
         {
             Console.WriteLine("No ClippingBook has been loaded.");
-            string defaultPath = Directory.GetCurrentDirectory().ToString() + "\\clippingbook.json";
+            var defaultPath = Directory.GetCurrentDirectory() + "\\clippingbook.json";
 
             if (!File.Exists(defaultPath))
             {
@@ -26,11 +23,11 @@ namespace MegaDriveWeb
 
             try
             {
-                FileStream fileStream = new FileStream(defaultPath, FileMode.Open);
-                using (StreamReader reader = new StreamReader(fileStream))
+                var fileStream = new FileStream(defaultPath, FileMode.Open);
+                using (var reader = new StreamReader(fileStream))
                 {
-                    string json = reader.ReadToEnd();
-                    ClippingBook loadedBook = JsonConvert.DeserializeObject<ClippingBook>(json);
+                    var json = reader.ReadToEnd();
+                    var loadedBook = JsonConvert.DeserializeObject<ClippingBook>(json);
                     Book = loadedBook;
                     return;
                 }
@@ -45,9 +42,9 @@ namespace MegaDriveWeb
 
         public static void WriteBook()
         {
-            string defaultPath = Directory.GetCurrentDirectory().ToString() + "\\megadrive.json";
-            FileStream fileStream = new FileStream(defaultPath, FileMode.Create);
-            using (StreamWriter writer = new StreamWriter(fileStream))
+            var defaultPath = Directory.GetCurrentDirectory() + "\\clippingbook.json";
+            var fileStream = new FileStream(defaultPath, FileMode.Create);
+            using (var writer = new StreamWriter(fileStream))
             {
                 var json = JsonConvert.SerializeObject(Book);
                 writer.Write(json);
